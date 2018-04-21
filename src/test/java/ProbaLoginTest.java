@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertTrue;
 
-public class ProbaLogin {
+public class ProbaLoginTest {
 
     private WebDriver browser;
     private static final String LOGIN = "380956320587";
