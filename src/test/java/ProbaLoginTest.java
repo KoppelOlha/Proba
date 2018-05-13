@@ -11,12 +11,12 @@ import static org.testng.Assert.assertTrue;
 
 public class ProbaLoginTest {
 
-    private WebDriver browser;
+    public static WebDriver browser;
     private static final String LOGIN = "380956320587";
     private static final String PASSWORD = "olga10071981";
 
     @BeforeClass
-    public void openBrowser() {
+    public static void openBrowser() {
         System.setProperty("webdriver.chrome.driver", "c:/chromedriver.exe");
         browser = new ChromeDriver();
         browser.manage().window().maximize();
@@ -24,17 +24,17 @@ public class ProbaLoginTest {
     }
 
     @Test
-    public void loginFacebook() {
+    public static void loginFacebook() {
         browser.get("https://www.facebook.com");
         browser.findElement(By.cssSelector("[type~=email]")).sendKeys(LOGIN);
         browser.findElement(By.cssSelector("#pass")).sendKeys(PASSWORD);
         browser.findElement(By.xpath(".//label[@id='loginbutton']")).click();
-        assertTrue(browser.findElement(By.cssSelector("[data-testid~=left_nav_section_Интересное]")).isDisplayed());
-
+        assertTrue(browser.findElement(By.className("imgWrap")).isDisplayed());
     }
 
     @AfterClass
-    public void closedBrowser() {
+    public void closeBrowser() {
         browser.quit();
     }
 }
+
